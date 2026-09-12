@@ -11,6 +11,7 @@ async function sendTokenResponse(user, res, message) {
     res.cookie("token", token)
 
     res.status(200).json({
+        message,
         success: true,
         token,
         user: {
