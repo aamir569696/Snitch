@@ -20,3 +20,5 @@ const useAuth = () => {
     return { handleRegister };
 
 }
+
+export default useAuth;

@@ -1,0 +1,717 @@
+/* ============================================================
+   SNITCH — world-class premium registration experience
+   ============================================================ */
+
+.snitch-auth {
+  --bg: #08090c;
+  --gold: #ffd000;
+  --gold-2: #ffb800;
+  --amber: #e6a100;
+  --deep: #c67e12;
+  --ink: #f4f4f6;
+  --muted: #83868f;
+
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .snitch-auth {
+    grid-template-columns: 1.05fr 0.95fr;
+  }
+}
+
+/* ============================================================
+   LEFT — liquid gold silk hero
+   ============================================================ */
+.snitch-hero {
+  position: relative;
+  display: none;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+@media (min-width: 1024px) {
+  .snitch-hero {
+    display: block;
+  }
+}
+
+/* animated multi-layer liquid silk */
+.snitch-silk {
+  position: absolute;
+  inset: -20%;
+  z-index: 0;
+  filter: blur(10px);
+}
+
+.snitch-silk__layer {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: screen;
+  opacity: 0.85;
+  border-radius: 45% 55% 60% 40% / 50% 45% 55% 50%;
+  will-change: transform;
+}
+
+.snitch-silk__layer--1 {
+  background: radial-gradient(
+    60% 60% at 35% 40%,
+    rgba(255, 184, 0, 0.55),
+    transparent 70%
+  );
+  animation: snitch-morph 18s ease-in-out infinite alternate;
+}
+
+.snitch-silk__layer--2 {
+  background: radial-gradient(
+    55% 55% at 70% 65%,
+    rgba(230, 161, 0, 0.5),
+    transparent 68%
+  );
+  animation: snitch-morph 22s ease-in-out infinite alternate-reverse;
+}
+
+.snitch-silk__layer--3 {
+  background: radial-gradient(
+    50% 50% at 55% 25%,
+    rgba(198, 126, 18, 0.45),
+    transparent 65%
+  );
+  animation: snitch-morph 26s ease-in-out infinite alternate;
+}
+
+/* fine dark grain / vignette so the gold reads as luxurious not neon */
+.snitch-silk__grain {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(120% 120% at 50% 30%, transparent 30%, rgba(8, 9, 12, 0.75) 100%),
+    linear-gradient(180deg, rgba(8, 9, 12, 0.2), rgba(8, 9, 12, 0.85));
+}
+
+@keyframes snitch-morph {
+  0% {
+    transform: translate3d(-6%, -4%, 0) scale(1) rotate(0deg);
+    border-radius: 45% 55% 60% 40% / 50% 45% 55% 50%;
+  }
+  50% {
+    transform: translate3d(6%, 3%, 0) scale(1.12) rotate(8deg);
+    border-radius: 60% 40% 45% 55% / 55% 50% 45% 55%;
+  }
+  100% {
+    transform: translate3d(-3%, 5%, 0) scale(1.05) rotate(-6deg);
+    border-radius: 50% 50% 55% 45% / 45% 55% 50% 50%;
+  }
+}
+
+/* floating glassmorphic sculpture (abstract shards) */
+.snitch-sculpture {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.snitch-shard {
+  position: absolute;
+  border-radius: 26px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.14),
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(6px);
+  box-shadow:
+    0 30px 80px -20px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  will-change: transform;
+}
+
+.snitch-shard--a {
+  width: 15rem;
+  height: 15rem;
+  top: 20%;
+  left: 28%;
+  transform: rotate(18deg);
+  animation: snitch-drift 16s ease-in-out infinite alternate;
+}
+
+.snitch-shard--b {
+  width: 9rem;
+  height: 9rem;
+  top: 46%;
+  left: 52%;
+  border-radius: 40px;
+  transform: rotate(-12deg);
+  animation: snitch-drift 20s ease-in-out infinite alternate-reverse;
+}
+
+.snitch-shard--c {
+  width: 6rem;
+  height: 6rem;
+  top: 34%;
+  left: 20%;
+  border-radius: 20px;
+  transform: rotate(30deg);
+  animation: snitch-drift 24s ease-in-out infinite alternate;
+}
+
+@keyframes snitch-drift {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(12deg);
+  }
+  100% {
+    transform: translate3d(1.6rem, -1.8rem, 0) rotate(-10deg);
+  }
+}
+
+.snitch-hero__content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 4.5rem;
+  gap: 1.25rem;
+}
+
+.snitch-hero__brand {
+  position: absolute;
+  top: 3.5rem;
+  left: 4.5rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.55em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.snitch-hero__headline {
+  max-width: 34rem;
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: clamp(2.4rem, 3.6vw, 3.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: #fbfbfc;
+}
+
+.snitch-hero__glow {
+  color: #ffe08a;
+  text-shadow:
+    0 0 18px rgba(255, 184, 0, 0.55),
+    0 0 44px rgba(255, 184, 0, 0.35);
+}
+
+.snitch-hero__sub {
+  max-width: 30rem;
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ============================================================
+   RIGHT — floating glass form stage
+   ============================================================ */
+.snitch-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 3.5rem 1.4rem;
+  overflow: hidden;
+}
+
+/* warm amber bloom behind the card */
+.snitch-bloom {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 34rem;
+  height: 34rem;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 184, 0, 0.22), transparent 62%);
+  filter: blur(30px);
+  pointer-events: none;
+  animation: snitch-pulse 9s ease-in-out infinite;
+}
+
+@keyframes snitch-pulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+}
+
+/* the floating glass card with a gradient hairline border */
+.snitch-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 27rem;
+  padding: 2.75rem;
+  border-radius: 26px;
+  background: rgba(20, 20, 25, 0.6);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  box-shadow:
+    0 40px 90px -30px rgba(0, 0, 0, 0.9),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* gradient 1px border: translucent white fading to a touch of gold */
+.snitch-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    140deg,
+    rgba(255, 255, 255, 0.28),
+    rgba(255, 255, 255, 0.04) 40%,
+    rgba(255, 184, 0, 0.35) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+@media (min-width: 640px) {
+  .snitch-card {
+    padding: 3rem;
+  }
+}
+
+.snitch-card__head {
+  text-align: center;
+  margin-bottom: 2.25rem;
+}
+
+.snitch-card__brand {
+  display: inline-block;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.snitch-card__sub {
+  margin: 0.8rem 0 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #a1a1aa;
+}
+
+/* ============================================================
+   Form + underline inputs with animated gold glow trail
+   ============================================================ */
+.snitch-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.snitch-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 560px) {
+  .snitch-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.snitch-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.snitch-label {
+  margin-bottom: 0.6rem;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #e4e4e7;
+}
+
+.snitch-inputwrap {
+  position: relative;
+}
+
+/* underline-only input */
+.snitch-input {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #27272a;
+  background: transparent;
+  padding: 0.6rem 0.15rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  color: #f4f4f5;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.snitch-input--pw {
+  padding-right: 3.5rem;
+}
+
+.snitch-input::placeholder {
+  color: #71717a;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* Kill browser autofill's white background + black text.
+   Autofill forces its own bg, so we mask it with a huge inset
+   shadow in the page color and repaint the text via text-fill-color. */
+.snitch-input:-webkit-autofill,
+.snitch-input:-webkit-autofill:hover,
+.snitch-input:-webkit-autofill:focus,
+.snitch-input:-webkit-autofill:active {
+  -webkit-text-fill-color: #ffffff;
+  caret-color: #ffffff;
+  -webkit-box-shadow: 0 0 0 1000px #08090c inset;
+  box-shadow: 0 0 0 1000px #08090c inset;
+  border-bottom: 1px solid #27272a;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+.snitch-inputwrap:focus-within .snitch-input:-webkit-autofill {
+  border-bottom-color: #f59e0b;
+}
+
+/* Firefox autofill */
+.snitch-input:autofill {
+  -webkit-text-fill-color: #ffffff;
+  box-shadow: 0 0 0 1000px #08090c inset;
+}
+
+/* focused underline turns crisp gold */
+.snitch-inputwrap:focus-within .snitch-input {
+  border-bottom-color: #f59e0b;
+}
+
+/* the glowing trail that wraps/reveals along the underline on focus */
+.snitch-trail {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 184, 0, 0),
+    var(--gold-2) 30%,
+    var(--gold) 60%,
+    rgba(255, 184, 0, 0)
+  );
+  box-shadow: 0 0 12px 1px rgba(255, 184, 0, 0.7);
+  opacity: 0;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.snitch-inputwrap:focus-within .snitch-trail {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.snitch-pwtoggle {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #a1a1aa;
+  transition: color 0.2s ease;
+}
+
+.snitch-pwtoggle:hover {
+  color: #f59e0b;
+}
+
+/* ============================================================
+   Seller — Apple-style liquid toggle
+   ============================================================ */
+.snitch-seller {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.15rem 0;
+}
+
+.snitch-seller__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.snitch-seller__title {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #f4f4f5;
+}
+
+.snitch-seller__hint {
+  font-size: 0.75rem;
+  letter-spacing: 0.01em;
+  color: #a1a1aa;
+}
+
+.snitch-switch {
+  position: relative;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.snitch-switch__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.snitch-switch__track {
+  display: block;
+  width: 3.25rem;
+  height: 1.85rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+}
+
+.snitch-switch__thumb {
+  position: absolute;
+  top: 50%;
+  left: 0.22rem;
+  width: 1.42rem;
+  height: 1.42rem;
+  border-radius: 9999px;
+  background: #f1f1f3;
+  transform: translateY(-50%);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  transition: transform 0.42s cubic-bezier(0.4, 0, 0.2, 1), width 0.25s ease;
+}
+
+/* liquid squish while sliding */
+.snitch-switch:active .snitch-switch__thumb {
+  width: 1.7rem;
+}
+
+.snitch-switch__input:checked ~ .snitch-switch__track {
+  background: linear-gradient(90deg, var(--amber), var(--gold));
+  border-color: rgba(255, 184, 0, 0.55);
+  box-shadow: 0 0 16px -1px rgba(255, 184, 0, 0.65);
+}
+
+.snitch-switch__input:checked ~ .snitch-switch__track .snitch-switch__thumb {
+  transform: translateY(-50%) translateX(1.4rem);
+  background: #fff;
+}
+
+.snitch-switch__input:focus-visible ~ .snitch-switch__track {
+  box-shadow: 0 0 0 3px rgba(255, 184, 0, 0.35);
+}
+
+/* ============================================================
+   CTA — liquid metallic gold
+   ============================================================ */
+.snitch-error {
+  margin: -0.4rem 0 0;
+  font-size: 0.82rem;
+  color: #ff7a7a;
+}
+
+.snitch-cta {
+  position: relative;
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.95rem 1rem;
+  border: 0;
+  border-radius: 14px;
+  cursor: pointer;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    #e6a100 0%,
+    #ffd000 45%,
+    #ffb800 70%,
+    #d98e12 100%
+  );
+  background-size: 180% 180%;
+  background-position: 0% 50%;
+  box-shadow:
+    0 14px 34px -10px rgba(255, 184, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -3px 8px rgba(150, 90, 0, 0.4);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.28s ease,
+    background-position 0.6s ease;
+}
+
+/* glossy metallic sheen sweep */
+.snitch-cta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.45) 48%,
+    transparent 62%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.7s ease;
+}
+
+.snitch-cta__label {
+  position: relative;
+  z-index: 1;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #1a1200;
+}
+
+.snitch-cta:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background-position: 100% 50%;
+  box-shadow:
+    0 20px 46px -12px rgba(255, 184, 0, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -3px 8px rgba(150, 90, 0, 0.4);
+}
+
+.snitch-cta:hover:not(:disabled)::after {
+  transform: translateX(120%);
+}
+
+.snitch-cta:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow:
+    0 8px 20px -10px rgba(255, 184, 0, 0.5),
+    inset 0 2px 6px rgba(120, 70, 0, 0.55),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.snitch-cta:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ============================================================
+   switch-to-login link
+   ============================================================ */
+.snitch-switchlink {
+  margin: 2rem 0 0;
+  text-align: center;
+  font-size: 0.88rem;
+  color: #a1a1aa;
+}
+
+.snitch-link {
+  position: relative;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-weight: 700;
+  color: #f59e0b;
+}
+
+.snitch-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s ease;
+}
+
+.snitch-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ============================================================
+   footer pinned to viewport corners
+   ============================================================ */
+.snitch-footer {
+  position: fixed;
+  bottom: 1.35rem;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1.75rem;
+  pointer-events: none;
+}
+
+.snitch-footer span {
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #71717a;
+  pointer-events: auto;
+}
+
+.snitch-footer__right {
+  text-align: right;
+}
+
+/* ============================================================
+   reduced motion
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .snitch-silk__layer,
+  .snitch-shard,
+  .snitch-bloom {
+    animation: none;
+  }
+}
