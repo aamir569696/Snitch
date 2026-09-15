@@ -183,6 +183,9 @@ const Register = () => {
                 {loading ? 'Creating Account…' : 'Create Account'}
               </span>
             </button>
+
+<a href="/api/auth/google" className="text-2xl" >continue with google</a>
+
           </form>
 
           <p className="snitch-switchlink">

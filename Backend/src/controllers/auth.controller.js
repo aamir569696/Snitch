@@ -73,5 +73,11 @@ const loginUser=async(req,res)=>{
 
 }
 
+const googleAuthCallback = async (req, res) => {
+    console.log(req.user);
 
-export { registerUser, loginUser };
+    res.redirect("http://localhost:5173/dashboard");
+}
+
+
+export { registerUser, loginUser, googleAuthCallback };

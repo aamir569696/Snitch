@@ -39,15 +39,15 @@ const Login = () => {
         {/* ambient gold/amber mesh glow */}
         <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_25%_25%,rgba(255,184,0,0.12),transparent_55%),radial-gradient(120%_120%_at_80%_85%,rgba(230,161,0,0.14),transparent_50%),linear-gradient(160deg,#0d0e12,#0b0c0e_60%,#08090b)]" />
         <div className="absolute -left-16 -top-16 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(255,184,0,0.45),transparent_70%)] blur-3xl" />
-        <div className="absolute -bottom-24 -right-20 h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle,rgba(230,161,0,0.4),transparent_70%)] blur-3xl" />
+        <div className="absolute -bottom-24 -right-20 h-104 w-104 rounded-full bg-[radial-gradient(circle,rgba(230,161,0,0.4),transparent_70%)] blur-3xl" />
 
         {/* abstract 3D glass shards */}
         <div className="pointer-events-none absolute inset-0">
-          <span className="absolute left-[28%] top-[22%] h-56 w-56 rotate-[18deg] rounded-[26px] border border-white/15 bg-gradient-to-br from-white/15 to-white/[0.02] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] backdrop-blur-md" />
-          <span className="absolute left-[52%] top-[48%] h-36 w-36 -rotate-12 rounded-[40px] border border-white/15 bg-gradient-to-br from-white/15 to-white/[0.02] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] backdrop-blur-md" />
-          <span className="absolute left-[20%] top-[36%] h-24 w-24 rotate-[30deg] rounded-[20px] border border-white/15 bg-gradient-to-br from-white/15 to-white/[0.02] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] backdrop-blur-md" />
+          <span className="absolute left-[28%] top-[22%] h-56 w-56 rotate-18 rounded-[26px] border border-white/15 bg-linear-to-br from-white/15 to-white/2 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] backdrop-blur-md" />
+          <span className="absolute left-[52%] top-[48%] h-36 w-36 -rotate-12 rounded-[40px] border border-white/15 bg-linear-to-br from-white/15 to-white/2 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] backdrop-blur-md" />
+          <span className="absolute left-[20%] top-[36%] h-24 w-24 rotate-30 rounded-[20px] border border-white/15 bg-linear-to-br from-white/15 to-white/2 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] backdrop-blur-md" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0C0E] via-transparent to-[#0B0C0E]/40" />
+        <div className="absolute inset-0 bg-linear-to-t from-[#0B0C0E] via-transparent to-[#0B0C0E]/40" />
 
         {/* hero text */}
         <span className="absolute left-14 top-14 text-lg font-medium uppercase tracking-[0.5em] text-white/90">
@@ -70,7 +70,7 @@ const Login = () => {
       {/* ===================== RIGHT — floating glass login card ===================== */}
       <main className="relative flex min-h-screen items-center justify-center overflow-hidden px-5 py-12 sm:px-8 lg:min-h-full">
         {/* soft ambient amber glow behind the card */}
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,184,0,0.18),transparent_62%)] blur-3xl" />
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-128 w-lg -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,184,0,0.18),transparent_62%)] blur-3xl" />
 
         <section className="relative w-full max-w-md rounded-2xl border border-white/5 bg-zinc-900/60 p-8 shadow-2xl shadow-amber-500/10 backdrop-blur-xl sm:p-10">
           <header className="mb-9 text-center">
@@ -154,7 +154,7 @@ const Login = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full transform rounded-xl bg-gradient-to-r from-amber-600 to-amber-400 py-3 font-bold uppercase tracking-wider text-black shadow-lg shadow-amber-500/10 transition-all duration-300 hover:-translate-y-0.5 hover:from-amber-500 hover:to-amber-300 disabled:cursor-not-allowed disabled:opacity-70"
+              className="w-full transform rounded-xl bg-linear-to-r from-amber-600 to-amber-400 py-3 font-bold uppercase tracking-wider text-black shadow-lg shadow-amber-500/10 transition-all duration-300 hover:-translate-y-0.5 hover:from-amber-500 hover:to-amber-300 disabled:cursor-not-allowed disabled:opacity-70"
             >
               {loading ? 'Logging in…' : 'Log In'}
             </button>
