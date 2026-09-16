@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router'
 import useAuth from '../Hook/useAuth'
 import './register.css'
+import ContinueGoogle from '../components/ContinueGoogle'
 
 const Register = () => {
   const { handleRegister } = useAuth()
@@ -184,9 +185,11 @@ const Register = () => {
               </span>
             </button>
 
-<a href="/api/auth/google" className="text-2xl" >continue with google</a>
+
 
           </form>
+
+          <ContinueGoogle/>
 
           <p className="snitch-switchlink">
             Already have an account?{' '}

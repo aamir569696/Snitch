@@ -12,6 +12,6 @@ router.post("/login", validateLoginUserRules, loginUser);
 
 router.get("/google", passport.authenticate("google", { scope: ["profile", "email"] }));
 
-router.get("/google/callback", passport.authenticate("google", { session: false }), googleAuthCallback);
+router.get("/google/callback", passport.authenticate("google", { session: false,failureRedirect:"http://localhost:5173/login" }), googleAuthCallback);
 
 export default router;
