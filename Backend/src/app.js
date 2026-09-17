@@ -34,8 +34,10 @@ passport.use(new GoogleStrategy({
 //     credentials: true,
 // }));
 
+//register and login
 app.use("/api/auth", authrouter);
 
+//product create and get
 app.use("/api", router);
 
 export default app;

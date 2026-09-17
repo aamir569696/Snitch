@@ -1,6 +1,6 @@
 import ProductModel from "../models/product.model.js";
 
-const createProduct = async (req, res) => {
+export async function createProduct(req, res){
 
     const {title,description,priceamount,pricecurency}=req.body;
 
@@ -33,5 +33,17 @@ const createProduct = async (req, res) => {
     })
 
 }
+export async function getSellerProduct(req,res) {
+    const seller=req.user
 
-export { createProduct };
+    const product=await ProductModel.find({seller:seller._id})
+
+    res.status(200).json({
+        message:"product get succesfully",
+        success:true,
+        product
+    })
+
+}
+
+
