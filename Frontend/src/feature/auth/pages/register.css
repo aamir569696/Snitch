@@ -645,6 +645,34 @@
 }
 
 /* ============================================================
+   divider
+   ============================================================ */
+.snitch-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.6rem 0;
+  color: #71717a;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.snitch-divider::before,
+.snitch-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.12),
+    transparent
+  );
+}
+
+/* ============================================================
    switch-to-login link
    ============================================================ */
 .snitch-switchlink {

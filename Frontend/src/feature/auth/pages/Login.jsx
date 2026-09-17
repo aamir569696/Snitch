@@ -159,10 +159,16 @@ const Login = () => {
             >
               {loading ? 'Logging in…' : 'Log In'}
             </button>
-
-<ContinueGoogle/>
-
           </form>
+
+          {/* divider */}
+          <div className="my-6 flex items-center gap-4 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-zinc-500">
+            <span className="h-px flex-1 bg-linear-to-r from-transparent via-white/10 to-transparent" />
+            or
+            <span className="h-px flex-1 bg-linear-to-r from-transparent via-white/10 to-transparent" />
+          </div>
+
+          <ContinueGoogle />
 
           <p className="mt-8 text-center text-sm text-zinc-500">
             Don&apos;t have an account?{' '}

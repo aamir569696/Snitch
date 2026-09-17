@@ -189,8 +189,17 @@ const Register = () => {
 
           </form>
 
-          <ContinueGoogle/>
+         
 
+          <div className="snitch-divider">
+
+
+
+            <span>or</span>
+          </div>
+
+         <ContinueGoogle />
+ 
           <p className="snitch-switchlink">
             Already have an account?{' '}
             <button
@@ -200,6 +209,9 @@ const Register = () => {
             >
               Log in
             </button>
+
+ 
+
           </p>
         </section>
       </main>
