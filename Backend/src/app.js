@@ -38,6 +38,6 @@ passport.use(new GoogleStrategy({
 app.use("/api/auth", authrouter);
 
 //product create and get
-app.use("/api", router);
+app.use("/api/products", router);
 
 export default app;

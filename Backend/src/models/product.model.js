@@ -20,9 +20,9 @@ const productSchema = new mongoose.Schema({
     },
   },
 
-  image:{
+  images: [{
     url: { type: String, required: true },
-  }
+  }]
 
 
 }, { timestamps: true });

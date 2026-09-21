@@ -5,14 +5,13 @@ const client = new ImageKit({
   privateKey: config.IMAGEKIT_API_KEY, // This is the default and can be omitted
 });
 
-export async function uploadImage({ buffer, fileName, folder = "snitch" }) {
-  const result = client.files.upload({
+ async function uploadImage({ buffer, fileName, folder = "snitch" }) {
+  const result = await client.files.upload({
    file: await ImageKit.toFile(buffer),
    fileName,
    folder
   });
 
   return result
-
 }
-
+export default uploadImage
