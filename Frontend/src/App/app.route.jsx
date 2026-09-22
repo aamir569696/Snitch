@@ -6,32 +6,36 @@ import Dashbord from "../feature/products/pages/Dashbord";
 import Protected from "../feature/auth/components/Protected";
 
 export const router = createBrowserRouter([
-
-{
+  {
     path: "/",
-    element: <h1>Home</h1>
-},
-{
+    element: <h1>Home</h1>,
+  },
+  {
     path: "/register",
-    element: <Register />
-},
-{
+    element: <Register />,
+  },
+  {
     path: "/login",
-    element: <Login />
-},
-{
-    path:"/seller",
+    element: <Login />,
+  },
+  {
+    path: "/seller",
 
-    children:[
-        {
-            path:"/seller/create-product",
-            element:<Protected> <CreateProduct/> </Protected>
-        },
-        {
-            path:"/seller/dashboard",
-            element:<Dashbord/>
-        }
-    ]
-}
-
-])
+    children: [
+      {
+        path: "create-product",
+        element: (
+          <Protected role="seller">
+            <CreateProduct />
+          </Protected>
+        ),
+      },
+      {
+        path: "dashboard",
+        element: <Protected role="seller">
+            <Dashbord />
+        </Protected>,
+      },
+    ],
+  },
+]);

@@ -9,7 +9,7 @@ import { useEffect } from 'react'
 const App = () => {
 
  const {handleGetMe}= useAuth()
-
+const loading = useSelector(state => state.auth.loading);
   const user=useSelector(state=> state.auth.user)
 console.log(user)
 
@@ -19,7 +19,7 @@ handleGetMe()
  
 }, [])
 
-
+ if (loading) return <div>Loading App...</div>; 
 
   return (
     <>
