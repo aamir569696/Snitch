@@ -102,5 +102,22 @@ res.redirect("http://localhost:5173/");
     // res.redirect("http://localhost:5173/dashboard");
 }
 
+const getMe=async(req,res)=>{
+    const user=req.user;
 
-export { registerUser, loginUser, googleAuthCallback };
+    res.status(200).json({
+        message:"user fatch successfully",
+        success:true,
+        user:{
+            id : user._id,
+            email:user.email,
+            contact:user.contact,
+            fullname:user.fullname,
+            role:user.role
+        }
+
+    })
+}
+
+
+export { registerUser, loginUser, googleAuthCallback,getMe };
