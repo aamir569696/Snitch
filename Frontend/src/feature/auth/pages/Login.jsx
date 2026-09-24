@@ -1,37 +1,42 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router'
-import useAuth from '../Hook/useAuth'
-import ContinueGoogle from '../components/ContinueGoogle'
+import React, { useState } from "react";
+import { useNavigate } from "react-router";
+import useAuth from "../Hook/useAuth";
+import ContinueGoogle from "../components/ContinueGoogle";
 
 const Login = () => {
-  const { handleLogin } = useAuth()
-  const navigate = useNavigate()
+  const { handleLogin } = useAuth();
+  const navigate = useNavigate();
 
-  const [form, setForm] = useState({ email: '', password: '' })
-  const [showPassword, setShowPassword] = useState(false)
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
+  const [form, setForm] = useState({ email: "", password: "" });
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const onChange = (e) => {
-    const { name, value } = e.target
-    setForm((prev) => ({ ...prev, [name]: value }))
-  }
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
 
   const onSubmit = async (e) => {
-    e.preventDefault()
-    setError(null)
-    setLoading(true)
+    e.preventDefault();
+    setError(null);
+    setLoading(true);
     try {
-      await handleLogin(form)
-      navigate('/')
+      const user = await handleLogin(form);
+      if (user.role == "buyer") {
+        navigate("/");
+      } else if (user.role == "seller") {
+        navigate("/seller/dashboard");
+      }
     } catch (err) {
       setError(
-        err?.response?.data?.message || 'Invalid credentials. Please try again.'
-      )
+        err?.response?.data?.message ||
+          "Invalid credentials. Please try again.",
+      );
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   return (
     <div className="relative min-h-screen w-full bg-[#0B0C0E] text-zinc-100 antialiased lg:grid lg:grid-cols-2">
@@ -63,7 +68,8 @@ const Login = () => {
             </span>
           </h1>
           <p className="mt-5 max-w-md text-sm leading-relaxed text-white/50">
-            Step back into your workspace and pick up exactly where you left off.
+            Step back into your workspace and pick up exactly where you left
+            off.
           </p>
         </div>
       </aside>
@@ -116,7 +122,7 @@ const Login = () => {
                 </label>
                 <button
                   type="button"
-                  onClick={() => navigate('/forgot-password')}
+                  onClick={() => navigate("/forgot-password")}
                   className="text-xs text-amber-500 hover:underline"
                 >
                   Forgot Password?
@@ -126,7 +132,7 @@ const Login = () => {
                 <input
                   id="password"
                   name="password"
-                  type={showPassword ? 'text' : 'password'}
+                  type={showPassword ? "text" : "password"}
                   autoComplete="current-password"
                   required
                   value={form.password}
@@ -137,10 +143,10 @@ const Login = () => {
                 <button
                   type="button"
                   onClick={() => setShowPassword((v) => !v)}
-                  aria-label={showPassword ? 'Hide password' : 'Show password'}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
                   className="absolute inset-y-0 right-0 flex items-center text-[0.66rem] font-semibold uppercase tracking-wider text-zinc-400 transition-colors hover:text-amber-500"
                 >
-                  {showPassword ? 'Hide' : 'Show'}
+                  {showPassword ? "Hide" : "Show"}
                 </button>
               </div>
             </div>
@@ -157,7 +163,7 @@ const Login = () => {
               disabled={loading}
               className="w-full transform rounded-xl bg-linear-to-r from-amber-600 to-amber-400 py-3 font-bold uppercase tracking-wider text-black shadow-lg shadow-amber-500/10 transition-all duration-300 hover:-translate-y-0.5 hover:from-amber-500 hover:to-amber-300 disabled:cursor-not-allowed disabled:opacity-70"
             >
-              {loading ? 'Logging in…' : 'Log In'}
+              {loading ? "Logging in…" : "Log In"}
             </button>
           </form>
 
@@ -171,10 +177,10 @@ const Login = () => {
           <ContinueGoogle />
 
           <p className="mt-8 text-center text-sm text-zinc-500">
-            Don&apos;t have an account?{' '}
+            Don&apos;t have an account?{" "}
             <button
               type="button"
-              onClick={() => navigate('/register')}
+              onClick={() => navigate("/register")}
               className="font-medium text-amber-500 hover:underline"
             >
               Sign up
@@ -191,7 +197,7 @@ const Login = () => {
         Privacy · Terms
       </span>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

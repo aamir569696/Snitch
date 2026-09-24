@@ -11,7 +11,7 @@ const App = () => {
  const {handleGetMe}= useAuth()
 const loading = useSelector(state => state.auth.loading);
   const user=useSelector(state=> state.auth.user)
-console.log(user)
+//console.log(user)
 
 useEffect(() => {
   

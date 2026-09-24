@@ -35,7 +35,7 @@ const useAuth = () => {
     const data = await getMe();
     
     // 1. Check karein backend se actual mein kya data aa raha hai
-    console.log("Backend API Full Response Data:", data);
+    //console.log("Backend API Full Response Data:", data);
     
     if (data && data.user) {
       dispatch(setUser(data.user));
