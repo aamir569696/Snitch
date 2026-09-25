@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router'
 import useAuth from '../Hook/useAuth'
-import './register.css'
 import ContinueGoogle from '../components/ContinueGoogle'
 
 const Register = () => {
@@ -45,196 +44,219 @@ const Register = () => {
   }
 
   return (
-    <div className="snitch-auth">
-      {/* ===================== LEFT — liquid gold hero ===================== */}
-      <aside className="snitch-hero">
-        <div className="snitch-silk" aria-hidden="true">
-          <span className="snitch-silk__layer snitch-silk__layer--1" />
-          <span className="snitch-silk__layer snitch-silk__layer--2" />
-          <span className="snitch-silk__layer snitch-silk__layer--3" />
-          <span className="snitch-silk__grain" />
-        </div>
+    <div className="h-screen max-h-screen overflow-hidden w-full flex bg-[#FAFAFA] font-sans selection:bg-black selection:text-white">
+      {/* ===================== LEFT PANE — Elite Fashion Hero ===================== */}
+      <aside className="relative hidden lg:block w-1/2 h-full overflow-hidden group">
+        <img 
+          src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop" 
+          alt="Premium fashion model" 
+          className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-[2s] ease-out group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent pointer-events-none"></div>
+        <div className="absolute inset-0 bg-black/10 backdrop-blur-[1px]"></div>
 
-        {/* floating glass sculpture */}
-        <div className="snitch-sculpture" aria-hidden="true">
-          <span className="snitch-shard snitch-shard--a" />
-          <span className="snitch-shard snitch-shard--b" />
-          <span className="snitch-shard snitch-shard--c" />
-        </div>
-
-        <div className="snitch-hero__content">
-          <span className="snitch-hero__brand">Snitch</span>
-
-          <h1 className="snitch-hero__headline">
-            Craft your presence.
+        <div className="absolute inset-0 flex flex-col justify-end p-16 xl:p-24 z-10 pointer-events-none">
+          <div className="mb-8">
+            <span className="text-3xl font-black tracking-tighter text-white drop-shadow-lg">
+              SNITCH
+            </span>
+          </div>
+          <h1 className="text-5xl xl:text-6xl font-extrabold tracking-tight mb-6 leading-[1.1]">
+            <span className="text-white drop-shadow-md">Craft your presence.</span>
             <br />
-            <span className="snitch-hero__glow">Sell without limits.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-400 to-zinc-500 drop-shadow-sm">
+              Sell without limits.
+            </span>
           </h1>
-          <p className="snitch-hero__sub">
-            A curated marketplace engineered for creators and sellers who expect
-            more from every pixel, every interaction, every detail.
+          <p className="text-lg text-zinc-300 max-w-md leading-relaxed font-medium tracking-wide">
+            The definitive marketplace engineered for creators and sellers who demand perfection in every pixel, every interaction, and every detail.
           </p>
         </div>
       </aside>
 
-      {/* ===================== RIGHT — floating glass form ===================== */}
-      <main className="snitch-stage">
-        <div className="snitch-bloom" aria-hidden="true" />
+      {/* ===================== RIGHT PANE — Interactive Form ===================== */}
+      <main className="w-full lg:w-1/2 h-full flex flex-col relative bg-[#FAFAFA]">
+        <div className="flex-1 w-full h-full overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+          <div className="min-h-full w-full flex flex-col justify-center items-center px-6 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-20">
+            <div className="w-full max-w-[400px] flex flex-col shrink-0">
+              
+              <header className="mb-8 text-center lg:text-left shrink-0">
+                <span className="text-3xl font-black tracking-tighter text-black lg:hidden block mb-6">SNITCH</span>
+                <h2 className="text-2xl font-bold text-zinc-900 tracking-tight mb-1">Create an account</h2>
+                <p className="text-zinc-500 text-sm font-medium">Enter your details to join the exclusive marketplace.</p>
+              </header>
 
-        <section className="snitch-card">
-          <header className="snitch-card__head">
-            <span className="snitch-card__brand">Snitch</span>
-            <p className="snitch-card__sub">Create your account</p>
-          </header>
+              <form onSubmit={onSubmit} className="flex flex-col gap-4 shrink-0">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <FloatingField
+                    id="fullname"
+                    label="Full Name"
+                    name="fullname"
+                    type="text"
+                    autoComplete="name"
+                    value={form.fullname}
+                    onChange={onChange}
+                  />
+                  <FloatingField
+                    id="email"
+                    label="Email Address"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    value={form.email}
+                    onChange={onChange}
+                  />
+                </div>
 
-          <form onSubmit={onSubmit} className="snitch-form">
-            <div className="snitch-grid">
-              <Field
-                id="fullname"
-                label="Full Name"
-                name="fullname"
-                type="text"
-                autoComplete="name"
-                placeholder="Jane Doe"
-                value={form.fullname}
-                onChange={onChange}
-              />
-              <Field
-                id="email"
-                label="Email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                placeholder="you@example.com"
-                value={form.email}
-                onChange={onChange}
-              />
-            </div>
-
-            <Field
-              id="contact"
-              label="Contact Number"
-              name="contact"
-              type="tel"
-              autoComplete="tel"
-              placeholder="+92 555 000 0000"
-              value={form.contact}
-              onChange={onChange}
-            />
-
-            {/* Password */}
-            <div className="snitch-field">
-              <label htmlFor="password" className="snitch-label">
-                Password
-              </label>
-              <div className="snitch-inputwrap">
-                <input
-                  id="password"
-                  name="password"
-                  type={showPassword ? 'text' : 'password'}
-                  autoComplete="new-password"
-                  required
-                  value={form.password}
+                <FloatingField
+                  id="contact"
+                  label="Contact Number"
+                  name="contact"
+                  type="tel"
+                  autoComplete="tel"
+                  value={form.contact}
                   onChange={onChange}
-                  placeholder="••••••••"
-                  className="snitch-input snitch-input--pw"
                 />
-                <span className="snitch-trail" aria-hidden="true" />
+
+                {/* Password */}
+                <div className="relative group">
+                  <input
+                    id="password"
+                    name="password"
+                    type={showPassword ? 'text' : 'password'}
+                    autoComplete="new-password"
+                    required
+                    value={form.password}
+                    onChange={onChange}
+                    className="peer w-full px-4 pt-5 pb-1.5 rounded-xl border border-zinc-200 bg-white text-zinc-900 text-sm transition-all duration-300 focus:bg-white focus:border-black focus:ring-1 focus:ring-black focus:outline-none placeholder-transparent hover:border-zinc-300 shadow-sm pr-12"
+                    placeholder="Password"
+                  />
+                  <label 
+                    htmlFor="password" 
+                    className="absolute left-4 top-3.5 text-zinc-400 text-sm transition-all duration-300 peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-sm peer-placeholder-shown:text-zinc-400 peer-focus:top-1.5 peer-focus:text-[11px] peer-focus:text-black font-medium pointer-events-none"
+                  >
+                    Password
+                  </label>
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword((v) => !v)}
+                    aria-label={showPassword ? 'Hide password' : 'Show password'}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-xs font-bold text-zinc-400 hover:text-black transition-colors"
+                  >
+                    {showPassword ? 'Hide' : 'Show'}
+                  </button>
+                </div>
+
+                {/* Seller Toggle */}
+                <div 
+                  className="mt-1 flex items-center justify-between p-4 rounded-xl border border-zinc-200/60 bg-white shadow-sm transition-all duration-300 hover:border-zinc-300 hover:shadow cursor-pointer group"
+                  onClick={() => onChange({ target: { name: 'isSeller', type: 'checkbox', checked: !form.isSeller }})}
+                >
+                  <div className="flex flex-col pr-4 select-none">
+                    <span className="text-sm font-bold text-zinc-900 tracking-tight">Register as a Seller</span>
+                    <span className="text-[11px] text-zinc-500 mt-0.5 leading-tight">
+                      Unlock the seller dashboard and start listing products
+                    </span>
+                  </div>
+                  <label className="relative inline-flex items-center cursor-pointer shrink-0" onClick={e => e.stopPropagation()}>
+                    <input
+                      type="checkbox"
+                      name="isSeller"
+                      checked={form.isSeller}
+                      onChange={onChange}
+                      className="sr-only peer"
+                    />
+                    <div className="w-10 h-5 bg-zinc-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-black/10 rounded-full peer peer-checked:after:translate-x-5 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-zinc-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-black shadow-inner"></div>
+                  </label>
+                </div>
+
+                {error && (
+                  <div className="mt-1 p-3.5 rounded-xl bg-red-50 border border-red-100/50 text-red-600 text-[13px] font-medium flex items-start gap-2.5 animate-in fade-in slide-in-from-top-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 shrink-0 text-red-500 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                    </svg>
+                    <span className="leading-relaxed">{error}</span>
+                  </div>
+                )}
+
+                <button 
+                  type="submit" 
+                  disabled={loading} 
+                  className="mt-2 w-full py-3.5 px-6 bg-black hover:bg-zinc-900 text-white text-sm font-bold rounded-xl shadow-md shadow-black/20 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center active:scale-[0.98] group overflow-hidden relative"
+                >
+                  <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                  {loading ? (
+                    <div className="flex items-center gap-2">
+                      <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      <span>Creating Account…</span>
+                    </div>
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      Create Account
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                    </span>
+                  )}
+                </button>
+              </form>
+
+              <div className="flex items-center my-6 shrink-0">
+                <div className="flex-1 border-t border-zinc-200"></div>
+                <span className="px-3 text-[10px] font-bold text-zinc-400 uppercase tracking-widest">or</span>
+                <div className="flex-1 border-t border-zinc-200"></div>
+              </div>
+
+              <div className="w-full mb-6 shrink-0">
+                <ContinueGoogle />
+              </div>
+     
+              <p className="text-center text-sm font-medium text-zinc-500 shrink-0">
+                Already have an account?{' '}
                 <button
                   type="button"
-                  onClick={() => setShowPassword((v) => !v)}
-                  aria-label={showPassword ? 'Hide password' : 'Show password'}
-                  className="snitch-pwtoggle"
+                  onClick={() => navigate('/login')}
+                  className="font-bold text-black hover:underline focus:outline-none transition-all ml-1"
                 >
-                  {showPassword ? 'Hide' : 'Show'}
+                  Log in instead
                 </button>
-              </div>
-            </div>
-
-            {/* Seller toggle */}
-            <div className="snitch-seller">
-              <div className="snitch-seller__text">
-                <span className="snitch-seller__title">Register as a Seller</span>
-                <span className="snitch-seller__hint">
-                  Unlock the seller dashboard & product listings
-                </span>
-              </div>
-              <label className="snitch-switch">
-                <input
-                  type="checkbox"
-                  name="isSeller"
-                  checked={form.isSeller}
-                  onChange={onChange}
-                  className="snitch-switch__input"
-                />
-                <span className="snitch-switch__track">
-                  <span className="snitch-switch__thumb" />
-                </span>
-              </label>
-            </div>
-
-            {error && (
-              <p className="snitch-error" role="alert">
-                {error}
               </p>
-            )}
 
-            <button type="submit" disabled={loading} className="snitch-cta">
-              <span className="snitch-cta__label">
-                {loading ? 'Creating Account…' : 'Create Account'}
-              </span>
-            </button>
-
-
-
-          </form>
-
-         
-
-          <div className="snitch-divider">
-
-
-
-            <span>or</span>
+              <footer className="mt-8 flex justify-between items-center text-[11px] text-zinc-400 w-full pt-5 border-t border-zinc-200 shrink-0">
+                <span className="font-medium">© {new Date().getFullYear()} Snitch.</span>
+                <div className="flex gap-4 font-medium">
+                  <a href="#" className="hover:text-zinc-900 transition-colors">Privacy</a>
+                  <a href="#" className="hover:text-zinc-900 transition-colors">Terms</a>
+                </div>
+              </footer>
+            </div>
           </div>
-
-         <ContinueGoogle />
- 
-          <p className="snitch-switchlink">
-            Already have an account?{' '}
-            <button
-              type="button"
-              onClick={() => navigate('/login')}
-              className="snitch-link"
-            >
-              Log in
-            </button>
-
- 
-
-          </p>
-        </section>
+        </div>
       </main>
-
-      {/* ===================== footer pinned to viewport corners ===================== */}
-      <footer className="snitch-footer">
-        <span className="snitch-footer__left">© {new Date().getFullYear()} Snitch</span>
-        <span className="snitch-footer__right">Privacy · Terms</span>
-      </footer>
     </div>
   )
 }
 
-const Field = ({ id, label, ...props }) => (
-  <div className="snitch-field">
-    <label htmlFor={id} className="snitch-label">
+const FloatingField = ({ id, label, ...props }) => (
+  <div className="relative group">
+    <input 
+      id={id} 
+      required 
+      className="peer w-full px-4 pt-5 pb-1.5 rounded-xl border border-zinc-200 bg-white text-zinc-900 text-sm transition-all duration-300 focus:bg-white focus:border-black focus:ring-1 focus:ring-black focus:outline-none placeholder-transparent hover:border-zinc-300 shadow-sm" 
+      placeholder={label}
+      {...props} 
+    />
+    <label 
+      htmlFor={id} 
+      className="absolute left-4 top-3.5 text-zinc-400 text-sm transition-all duration-300 peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-sm peer-placeholder-shown:text-zinc-400 peer-focus:top-1.5 peer-focus:text-[11px] peer-focus:text-black font-medium pointer-events-none"
+    >
       {label}
     </label>
-    <div className="snitch-inputwrap">
-      <input id={id} required className="snitch-input" {...props} />
-      <span className="snitch-trail" aria-hidden="true" />
-    </div>
   </div>
 )
 
 export default Register
+

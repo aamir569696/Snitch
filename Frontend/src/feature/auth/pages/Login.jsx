@@ -39,165 +39,189 @@ const Login = () => {
   };
 
   return (
-    <div className="relative min-h-screen w-full bg-[#0B0C0E] text-zinc-100 antialiased lg:grid lg:grid-cols-2">
-      {/* ===================== LEFT — glassmorphic hero ===================== */}
-      <aside className="relative hidden overflow-hidden lg:block">
-        {/* ambient gold/amber mesh glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_25%_25%,rgba(255,184,0,0.12),transparent_55%),radial-gradient(120%_120%_at_80%_85%,rgba(230,161,0,0.14),transparent_50%),linear-gradient(160deg,#0d0e12,#0b0c0e_60%,#08090b)]" />
-        <div className="absolute -left-16 -top-16 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(255,184,0,0.45),transparent_70%)] blur-3xl" />
-        <div className="absolute -bottom-24 -right-20 h-104 w-104 rounded-full bg-[radial-gradient(circle,rgba(230,161,0,0.4),transparent_70%)] blur-3xl" />
+    <div className="h-screen max-h-screen overflow-hidden w-full flex bg-[#FAFAFA] font-sans selection:bg-black selection:text-white">
+      {/* ===================== LEFT PANE — Elite Fashion Hero ===================== */}
+      <aside className="relative hidden lg:block w-1/2 h-full overflow-hidden group">
+        <img 
+          src="https://images.unsplash.com/photo-1509319117193-57bab727e09d?q=80&w=2070&auto=format&fit=crop" 
+          alt="Premium fashion model" 
+          className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-[2s] ease-out group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent pointer-events-none"></div>
+        <div className="absolute inset-0 bg-black/10 backdrop-blur-[1px]"></div>
 
-        {/* abstract 3D glass shards */}
-        <div className="pointer-events-none absolute inset-0">
-          <span className="absolute left-[28%] top-[22%] h-56 w-56 rotate-18 rounded-[26px] border border-white/15 bg-linear-to-br from-white/15 to-white/2 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] backdrop-blur-md" />
-          <span className="absolute left-[52%] top-[48%] h-36 w-36 -rotate-12 rounded-[40px] border border-white/15 bg-linear-to-br from-white/15 to-white/2 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] backdrop-blur-md" />
-          <span className="absolute left-[20%] top-[36%] h-24 w-24 rotate-30 rounded-[20px] border border-white/15 bg-linear-to-br from-white/15 to-white/2 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] backdrop-blur-md" />
-        </div>
-        <div className="absolute inset-0 bg-linear-to-t from-[#0B0C0E] via-transparent to-[#0B0C0E]/40" />
-
-        {/* hero text */}
-        <span className="absolute left-14 top-14 text-lg font-medium uppercase tracking-[0.5em] text-white/90">
-          Snitch
-        </span>
-        <div className="absolute inset-x-14 bottom-16 max-w-xl">
-          <h1 className="font-serif text-4xl font-medium leading-[1.05] tracking-tight text-white xl:text-5xl">
-            Reignite your presence.
+        <div className="absolute inset-0 flex flex-col justify-end p-16 xl:p-24 z-10 pointer-events-none">
+          <div className="mb-8">
+            <span className="text-3xl font-black tracking-tighter text-white drop-shadow-lg">
+              SNITCH
+            </span>
+          </div>
+          <h1 className="text-5xl xl:text-6xl font-extrabold tracking-tight mb-6 leading-[1.1]">
+            <span className="text-white drop-shadow-md">Welcome back.</span>
             <br />
-            <span className="text-amber-300 [text-shadow:0_0_18px_rgba(255,184,0,0.55),0_0_44px_rgba(255,184,0,0.35)]">
-              Manage without limits.
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-400 to-zinc-500 drop-shadow-sm">
+              Your style awaits.
             </span>
           </h1>
-          <p className="mt-5 max-w-md text-sm leading-relaxed text-white/50">
-            Step back into your workspace and pick up exactly where you left
-            off.
+          <p className="text-lg text-zinc-300 max-w-md leading-relaxed font-medium tracking-wide">
+            Step back into your exclusive workspace and pick up exactly where you left off.
           </p>
         </div>
       </aside>
 
-      {/* ===================== RIGHT — floating glass login card ===================== */}
-      <main className="relative flex min-h-screen items-center justify-center overflow-hidden px-5 py-12 sm:px-8 lg:min-h-full">
-        {/* soft ambient amber glow behind the card */}
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-128 w-lg -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,184,0,0.18),transparent_62%)] blur-3xl" />
+      {/* ===================== RIGHT PANE — Interactive Form ===================== */}
+      <main className="w-full lg:w-1/2 h-full flex flex-col relative bg-[#FAFAFA]">
+        <div className="flex-1 w-full h-full overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+          <div className="min-h-full w-full flex flex-col justify-center items-center px-6 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-20">
+            <div className="w-full max-w-[400px] flex flex-col shrink-0">
+              
+              <header className="mb-8 text-center lg:text-left shrink-0">
+                <span className="text-3xl font-black tracking-tighter text-black lg:hidden block mb-6">SNITCH</span>
+                <h2 className="text-2xl font-bold text-zinc-900 tracking-tight mb-1">Log in to your account</h2>
+                <p className="text-zinc-500 text-sm font-medium">Welcome back to the exclusive marketplace.</p>
+              </header>
 
-        <section className="relative w-full max-w-md rounded-2xl border border-white/5 bg-zinc-900/60 p-8 shadow-2xl shadow-amber-500/10 backdrop-blur-xl sm:p-10">
-          <header className="mb-9 text-center">
-            <span className="inline-block text-2xl font-bold uppercase tracking-[0.42em] text-white">
-              Snitch
-            </span>
-            <p className="mt-3 text-sm text-zinc-500">
-              Welcome back. Log in to your account.
-            </p>
-          </header>
-
-          <form onSubmit={onSubmit} className="space-y-7">
-            {/* Email */}
-            <div className="flex flex-col">
-              <label
-                htmlFor="email"
-                className="mb-2 text-xs font-semibold uppercase tracking-wider text-zinc-400"
-              >
-                Email Address
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                value={form.email}
-                onChange={onChange}
-                placeholder="you@example.com"
-                className="border-b border-zinc-800 bg-transparent py-2.5 text-[0.95rem] text-white caret-amber-400 placeholder-zinc-600 transition-colors duration-300 focus:border-amber-500 focus:outline-none [-webkit-text-fill-color:#fff] autofill:shadow-[0_0_0_1000px_#0B0C0E_inset] autofill:[transition:background-color_9999s_ease-in-out_0s]"
-              />
-            </div>
-
-            {/* Password */}
-            <div className="flex flex-col">
-              <div className="mb-2 flex items-center justify-between">
-                <label
-                  htmlFor="password"
-                  className="text-xs font-semibold uppercase tracking-wider text-zinc-400"
-                >
-                  Password
-                </label>
-                <button
-                  type="button"
-                  onClick={() => navigate("/forgot-password")}
-                  className="text-xs text-amber-500 hover:underline"
-                >
-                  Forgot Password?
-                </button>
-              </div>
-              <div className="relative">
-                <input
-                  id="password"
-                  name="password"
-                  type={showPassword ? "text" : "password"}
-                  autoComplete="current-password"
-                  required
-                  value={form.password}
+              <form onSubmit={onSubmit} className="flex flex-col gap-4 shrink-0">
+                <FloatingField
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  value={form.email}
                   onChange={onChange}
-                  placeholder="••••••••"
-                  className="w-full border-b border-zinc-800 bg-transparent py-2.5 pr-14 text-[0.95rem] text-white caret-amber-400 placeholder-zinc-600 transition-colors duration-300 focus:border-amber-500 focus:outline-none [-webkit-text-fill-color:#fff] autofill:shadow-[0_0_0_1000px_#0B0C0E_inset] autofill:[transition:background-color_9999s_ease-in-out_0s]"
                 />
+
+                {/* Password */}
+                <div className="relative group">
+                  <input
+                    id="password"
+                    name="password"
+                    type={showPassword ? "text" : "password"}
+                    autoComplete="current-password"
+                    required
+                    value={form.password}
+                    onChange={onChange}
+                    className="peer w-full px-4 pt-5 pb-1.5 rounded-xl border border-zinc-200 bg-white text-zinc-900 text-sm transition-all duration-300 focus:bg-white focus:border-black focus:ring-1 focus:ring-black focus:outline-none placeholder-transparent hover:border-zinc-300 shadow-sm pr-12"
+                    placeholder="Password"
+                  />
+                  <label 
+                    htmlFor="password" 
+                    className="absolute left-4 top-3.5 text-zinc-400 text-sm transition-all duration-300 peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-sm peer-placeholder-shown:text-zinc-400 peer-focus:top-1.5 peer-focus:text-[11px] peer-focus:text-black font-medium pointer-events-none"
+                  >
+                    Password
+                  </label>
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword((v) => !v)}
+                    aria-label={showPassword ? "Hide password" : "Show password"}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-xs font-bold text-zinc-400 hover:text-black transition-colors"
+                  >
+                    {showPassword ? "Hide" : "Show"}
+                  </button>
+                </div>
+
+                {/* Remember Me & Forgot Password */}
+                <div className="flex items-center justify-between mt-1 mb-2 px-1">
+                  <label className="flex items-center gap-2 cursor-pointer group">
+                    <input type="checkbox" className="w-4 h-4 rounded border-zinc-300 text-black focus:ring-black transition-colors" />
+                    <span className="text-xs font-medium text-zinc-500 group-hover:text-zinc-900 transition-colors select-none">Remember Me</span>
+                  </label>
+                  <button
+                    type="button"
+                    onClick={() => navigate("/forgot-password")}
+                    className="text-xs font-bold text-zinc-900 hover:text-black hover:underline focus:outline-none transition-all"
+                  >
+                    Forgot Password?
+                  </button>
+                </div>
+
+                {error && (
+                  <div className="mt-1 p-3.5 rounded-xl bg-red-50 border border-red-100/50 text-red-600 text-[13px] font-medium flex items-start gap-2.5 animate-in fade-in slide-in-from-top-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 shrink-0 text-red-500 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                    </svg>
+                    <span className="leading-relaxed">{error}</span>
+                  </div>
+                )}
+
+                <button 
+                  type="submit" 
+                  disabled={loading} 
+                  className="mt-2 w-full py-3.5 px-6 bg-black hover:bg-zinc-900 text-white text-sm font-bold rounded-xl shadow-md shadow-black/20 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center active:scale-[0.98] group overflow-hidden relative"
+                >
+                  <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                  {loading ? (
+                    <div className="flex items-center gap-2">
+                      <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      <span>Logging in…</span>
+                    </div>
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      Log In
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                    </span>
+                  )}
+                </button>
+              </form>
+
+              <div className="flex items-center my-6 shrink-0">
+                <div className="flex-1 border-t border-zinc-200"></div>
+                <span className="px-3 text-[10px] font-bold text-zinc-400 uppercase tracking-widest">or</span>
+                <div className="flex-1 border-t border-zinc-200"></div>
+              </div>
+
+              <div className="w-full mb-6 shrink-0">
+                <ContinueGoogle />
+              </div>
+     
+              <p className="text-center text-sm font-medium text-zinc-500 shrink-0">
+                Don't have an account?{" "}
                 <button
                   type="button"
-                  onClick={() => setShowPassword((v) => !v)}
-                  aria-label={showPassword ? "Hide password" : "Show password"}
-                  className="absolute inset-y-0 right-0 flex items-center text-[0.66rem] font-semibold uppercase tracking-wider text-zinc-400 transition-colors hover:text-amber-500"
+                  onClick={() => navigate("/register")}
+                  className="font-bold text-black hover:underline focus:outline-none transition-all ml-1"
                 >
-                  {showPassword ? "Hide" : "Show"}
+                  Sign up
                 </button>
-              </div>
-            </div>
-
-            {error && (
-              <p className="text-sm text-red-400" role="alert">
-                {error}
               </p>
-            )}
 
-            {/* CTA */}
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full transform rounded-xl bg-linear-to-r from-amber-600 to-amber-400 py-3 font-bold uppercase tracking-wider text-black shadow-lg shadow-amber-500/10 transition-all duration-300 hover:-translate-y-0.5 hover:from-amber-500 hover:to-amber-300 disabled:cursor-not-allowed disabled:opacity-70"
-            >
-              {loading ? "Logging in…" : "Log In"}
-            </button>
-          </form>
-
-          {/* divider */}
-          <div className="my-6 flex items-center gap-4 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-zinc-500">
-            <span className="h-px flex-1 bg-linear-to-r from-transparent via-white/10 to-transparent" />
-            or
-            <span className="h-px flex-1 bg-linear-to-r from-transparent via-white/10 to-transparent" />
+              <footer className="mt-8 flex justify-between items-center text-[11px] text-zinc-400 w-full pt-5 border-t border-zinc-200 shrink-0">
+                <span className="font-medium">© {new Date().getFullYear()} Snitch.</span>
+                <div className="flex gap-4 font-medium">
+                  <a href="#" className="hover:text-zinc-900 transition-colors">Privacy</a>
+                  <a href="#" className="hover:text-zinc-900 transition-colors">Terms</a>
+                </div>
+              </footer>
+            </div>
           </div>
-
-          <ContinueGoogle />
-
-          <p className="mt-8 text-center text-sm text-zinc-500">
-            Don&apos;t have an account?{" "}
-            <button
-              type="button"
-              onClick={() => navigate("/register")}
-              className="font-medium text-amber-500 hover:underline"
-            >
-              Sign up
-            </button>
-          </p>
-        </section>
+        </div>
       </main>
-
-      {/* ===================== viewport footer ===================== */}
-      <span className="absolute bottom-4 left-6 text-[10px] tracking-widest text-zinc-600 uppercase">
-        © {new Date().getFullYear()} Snitch
-      </span>
-      <span className="absolute bottom-4 right-6 text-[10px] tracking-widest text-zinc-600 uppercase">
-        Privacy · Terms
-      </span>
     </div>
   );
 };
+
+const FloatingField = ({ id, label, ...props }) => (
+  <div className="relative group">
+    <input 
+      id={id} 
+      required 
+      className="peer w-full px-4 pt-5 pb-1.5 rounded-xl border border-zinc-200 bg-white text-zinc-900 text-sm transition-all duration-300 focus:bg-white focus:border-black focus:ring-1 focus:ring-black focus:outline-none placeholder-transparent hover:border-zinc-300 shadow-sm" 
+      placeholder={label}
+      {...props} 
+    />
+    <label 
+      htmlFor={id} 
+      className="absolute left-4 top-3.5 text-zinc-400 text-sm transition-all duration-300 peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-sm peer-placeholder-shown:text-zinc-400 peer-focus:top-1.5 peer-focus:text-[11px] peer-focus:text-black font-medium pointer-events-none"
+    >
+      {label}
+    </label>
+  </div>
+);
 
 export default Login;

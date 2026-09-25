@@ -42,7 +42,7 @@ const ContinueGoogle = ({
   return (
     <a
       href={href}
-      className="group flex w-full items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/4 px-4 py-3 text-sm font-medium text-zinc-200 transition-all duration-200 hover:border-white/20 hover:bg-white/[0.07] focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50 active:scale-[0.99]"
+      className="group flex w-full items-center justify-center gap-3 rounded-xl border border-zinc-200 bg-white px-4 py-3.5 text-sm font-semibold text-zinc-800 shadow-sm transition-all duration-200 hover:border-zinc-300 hover:bg-zinc-50 hover:shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-900/10 active:scale-[0.98]"
     >
       <GoogleLogo />
       <span className="tracking-wide">{label}</span>
