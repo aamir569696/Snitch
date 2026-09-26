@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import { useNavigate } from 'react-router'
 const CURRENCY_SYMBOL = {
   USD: '$',
   EUR: '€',
@@ -41,9 +41,9 @@ const ProductCard = ({ product }) => {
   const images = product?.images || []
   const [imgError, setImgError] = useState(false)
   const cover = images[0]?.url
-
+const navigate=useNavigate()
   return (
-    <article className="group flex flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:border-zinc-700 hover:shadow-2xl hover:shadow-black/40">
+    <article onClick={()=> {navigate(`/seller/product/${product._id}`)}} className="group cursor-pointer flex flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:border-zinc-700 hover:shadow-2xl hover:shadow-black/40">
       {/* Cover image */}
       <div className="relative aspect-4/3 overflow-hidden bg-zinc-800">
         {cover && !imgError ? (

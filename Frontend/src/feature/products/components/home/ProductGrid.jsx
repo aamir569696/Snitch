@@ -1,9 +1,9 @@
 import React from 'react'
 import ProductCard from './ProductCard'
 
-/** Responsive product grid: 2 cols (mobile) → 3 (tablet) → 4 (desktop). */
+/** Responsive product grid: 1 col (mobile) → 2 (sm) → 3 (md) → 4 (lg). */
 const ProductGrid = ({ products }) => (
-  <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 lg:gap-6">
+  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
     {products.map((product) => (
       <ProductCard key={product._id} product={product} />
     ))}

@@ -8,6 +8,42 @@ const productSchema = new mongoose.Schema({
     ref: "snitch_users",
     required: true,
   },
+
+   variant: [
+      {
+        images: [
+          {
+            url: {
+              type: String,
+              required: true,
+            },
+          },
+        ],
+        stock: {
+          type: Number,
+          default: 0,
+        },
+        attribute: {
+          type: Map,
+          of: String,
+        },
+
+        price: {
+    amount: {
+         type: Number,
+          required: true
+         },
+    currency: {
+      type: String,
+      enum: ["USD", "EUR", "GBP", "JPY", "CAD", "AUD"],
+      default: "USD",
+    },
+  },
+
+      },
+    ],
+  
+
   price: {
     amount: {
          type: Number,

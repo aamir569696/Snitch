@@ -4,6 +4,7 @@ import { useProduct } from "../Hooks/useProduct"
 import { useSelector } from "react-redux"
 import ProductCard from "../components/ProductCard"
 
+
 const Dashbord = () => {
   const { handleGetSellerProduct } = useProduct()
   const navigate = useNavigate()
@@ -36,7 +37,7 @@ const Dashbord = () => {
   const primaryCurrency = products[0]?.price?.currency || "USD"
 
   return (
-    <div className="min-h-screen w-full bg-zinc-950 px-6 py-10 text-zinc-100 antialiased sm:px-8 lg:py-14">
+    <div  className="min-h-screen w-full bg-zinc-950 px-6 py-10 text-zinc-100 antialiased sm:px-8 lg:py-14">
       <div className="mx-auto w-full max-w-6xl">
         {/* Header */}
         <header className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
